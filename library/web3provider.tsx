@@ -1,13 +1,13 @@
 // import Web3 from "web3";
 // import { contractABI, contractAddress } from "../constants";
-
-let selectedAccount;
-
+ 
+let selectedAccount
+ 
 import abiJson from "./abi.json"
 const abi = abiJson.abi
-
+ 
 const address = "0x370F63169BE9b3584C51d581B61f86442b7C25e2"
-
+ 
 // export async function initWeb3() {
 //     if (typeof window.ethereum == "undefined") {
 //         console.log("no metamask")
@@ -15,36 +15,35 @@ const address = "0x370F63169BE9b3584C51d581B61f86442b7C25e2"
 //     window.web3x = new Web3(window.ethereum);
 //     return new Promise((r) => setTimeout(r, 2000))
 // }
-
-export async function getAccount(){
-
+ 
+export async function getAccount() {
     try {
-        let accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+        // @ts-ignore
+        let accounts = await window.ethereum.request({
+            method: "eth_requestAccounts",
+        })
         selectedAccount = await accounts[0]
         console.log("selected Account: ", selectedAccount)
-        return selectedAccount;
-
+        return selectedAccount
     } catch (e) {
         console.log("couldn't connect to mm accounts", e)
     }
-
 }
-
+ 
 // async function createEventListener(getLastBeerInfo) {
 //     console.log("creating event listener")
 //     const contract = new window.web3x.eth.Contract(contractABI, contractAddress);
 //     contract.once('CreateRandNft', {
-//     }, function(error, event){ 
+//     }, function(error, event){
 //         console.log(event);
 //         console.log(error)
 //         let tokenId = event.returnValues.tokenId;
 //         let nftName = event.returnValues.nftName;
 //         getLastBeerInfo(tokenId, nftName);
 //     });
-
-
+ 
 // }
-
+ 
 // export async function mintNFT(getLastBeerInfo){
 //     console.log("minting NFT, provider: ", window.web3x)
 //     let contract = new window.web3x.eth.Contract(contractABI, contractAddress);
@@ -54,14 +53,33 @@ export async function getAccount(){
 //     console.log(txResult)
 //     createEventListener(getLastBeerInfo);
 // }
-
+ 
 // export async function getTokenCounter() {
 //     let contract = new window.web3x.eth.Contract(contractABI, contractAddress);
 //     let tokenCounter = await contract.methods.getTokenCounter().call();
 //     console.log("token counter: ", tokenCounter)
 //     return tokenCounter;
 // }
-
+export async function getMovies() {
+    // @ts-ignore
+    let contract = new window.web3x.eth.Contract(abi, address)
+    let movies = await contract.methods.movies(1).call()
+    console.log(movies)
+    return movies
+}
+export async function addMovies() {
+    // @ts-ignore
+    let contract = new window.web3x.eth.Contract(abi, address)
+    console.log(contract.methods);
+    await contract.methods.addMovie(
+            "SpiderMan",
+            "makkad manav aur uski zindagi",
+            "https://drive.google.com/file/d/1lkarZoG5INRi3NYuwSg7pEyxiLaqkoWx/view?usp=share_link",
+            "https://www.youtube.com/watch?v=h7nLvbTnDgg"
+        )
+        .send()
+}
+ 
 // export async function getNFTFromBlockchain(i) {
 //     let contract = new window.web3x.eth.Contract(contractABI, contractAddress);
 //     // let nftName = await contract.methods.getNftName(i).call();
@@ -69,5 +87,5 @@ export async function getAccount(){
 //     // get a random no from 1 to 10
 //     let r = Math.floor(Math.random() * 100) + 1;
 //     return ["Nft "+r, nftOwner];
-
+ 
 // }
