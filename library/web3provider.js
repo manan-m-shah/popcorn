@@ -3,6 +3,11 @@
 
 let selectedAccount;
 
+import abiJson from "./abi.json"
+const abi = abiJson.abi
+
+const address = "0x370F63169BE9b3584C51d581B61f86442b7C25e2"
+
 // export async function initWeb3() {
 //     if (typeof window.ethereum == "undefined") {
 //         console.log("no metamask")
