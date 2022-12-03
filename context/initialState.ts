@@ -1,7 +1,9 @@
 import { State } from "../types/Context";
 
 const initialState: State = {
-    count: 0
+    account: null,
+    movies: null,
+    stakeModal: false,
 }
 
 export default initialState

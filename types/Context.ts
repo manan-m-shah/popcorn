@@ -1,9 +1,21 @@
+type Movie = {
+    name: string,
+    description: string,
+    image: string,
+    playbackId: string,
+    creatorAddress: string,
+}
+
 type State = {
-    count: number
+    account: string | null,
+    movies: Movie[] | null,
+    stakeModal: boolean
 }
 
 export enum ActionKind {
-    COUNT = "COUNT",
+    SET_ACCOUNT = "SET_ACCOUNT",
+    SET_MOVIES = "SET_MOVIES",
+    STAKE_MODAL = "STAKE_MODAL",
 }
 
 type Action = {
