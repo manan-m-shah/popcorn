@@ -14,7 +14,7 @@ const Sidebar = () => {
 
     return (
         <div className='h-full flex flex-col  bg-gradient-to-top py-8'>
-            <MovieCard height={ 50}width={  75} /><MovieCard height={ 50}width={75} />
+            <MovieCard height={50} width={75} movieId={1} /><MovieCard height={50} width={75} movieId={1} />
             {/* <div className='flex flex-col gap-y-6 px-4'>
                 {titles.map((title, index) => (
                     <div
