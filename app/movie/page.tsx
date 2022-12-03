@@ -1,10 +1,16 @@
+'use client'
+
 import Image from 'next/image'
-import React from 'react'
+import React, { useContext } from 'react'
+import AppContext from '../../context/AppContext'
+import { ActionKind } from '../../types/Context'
 import notify from '../../utils/notify'
 
 const moviePoster = 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-movie-poster-template-design-0f5fff6262fdefb855e3a9a3f0fdd361_screen.jpg?ts=1636996054'
 
 const page = () => {
+    const { state, dispatch } = useContext(AppContext)
+
     return (
         <div className='grid grid-cols-2'>
             <div className='flex flex-col gap-y-4 p-4'>
@@ -44,13 +50,21 @@ const page = () => {
                 </div>
                 <div className='grid grid-cols-1 w-full p-8 gap-y-4'>
                     <button className='w-full p-3 bg-blue-500 rounded-2xl'
-                        // onClick={() => { 
-                        //     notify('info', 'Coming Soon!')
-                        // }}
+                    // onClick={() => { 
+                    //     notify('info', 'Coming Soon!')
+                    // }}
                     >
                         Play
                     </button>
-                    <button className='w-full p-3 bg-violet-500 rounded-2xl'>
+                    <button
+                        className='w-full p-3 bg-violet-500 rounded-2xl'
+                        onClick={() => {
+                            dispatch({
+                                type: ActionKind.STAKE_MODAL,
+                                payload: true,
+                            })
+                        }}
+                    >
                         Stake
                     </button>
                 </div>

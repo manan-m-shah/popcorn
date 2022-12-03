@@ -8,12 +8,14 @@ type Movie = {
 
 type State = {
     account: string | null,
-    movies: Movie[] | null
+    movies: Movie[] | null,
+    stakeModal: boolean
 }
 
 export enum ActionKind {
     SET_ACCOUNT = "SET_ACCOUNT",
-    SET_MOVIES = "SET_MOVIES"
+    SET_MOVIES = "SET_MOVIES",
+    STAKE_MODAL = "STAKE_MODAL",
 }
 
 type Action = {

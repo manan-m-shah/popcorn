@@ -10,6 +10,7 @@ const Navbar = () => {
 
     const [selected, setSelected] = useState(0)
     const account = state.account
+    console.log(account)
 
     return (
         <div className="flex flex-row justify-between p-4 items-center">
@@ -31,16 +32,9 @@ const Navbar = () => {
             </div>
             <div>
                 <button className="bg-violet-600 hover:bg-violet-500 p-3 text-white rounded-2xl">
-                    {
-                        account ? (
-                            account.length != 0 ? (
-                                `${account.slice(0, 4)}...${account.slice(
-                                    account.length - 4
-                                )}`
-                            ) : (
-                                <div>"Connect"</div>
-                            )) : <div>"Connect"</div>
-                    }
+                    <h1>
+                        {account ? "Connected" : "Connect"}
+                    </h1>
                 </button>
             </div>
         </div>
