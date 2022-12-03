@@ -29,7 +29,7 @@ export async function getAccount(){
 //     console.log("creating event listener")
 //     const contract = new window.web3x.eth.Contract(contractABI, contractAddress);
 //     contract.once('CreateRandNft', {
-//     }, function(error, event){ 
+//     }, function(error, event){
 //         console.log(event);
 //         console.log(error)
 //         let tokenId = event.returnValues.tokenId;

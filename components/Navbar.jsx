@@ -46,13 +46,13 @@ const Navbar = () => {
             </div>
             <div>
                 <button className="bg-violet-600 hover:bg-violet-500 p-3 text-white rounded-2xl">
-                   {account ? {account.length != 0 ? (
+                   {account ? account.length != 0 ? (
                         `${account.slice(0, 4)}...${account.slice(
                             account.length - 4
                         )}`
                     ) : (
                         <div>"Connect"</div>
-                    )}:<div>"Connect"</div>}
+                    ):<div>"Connect"</div>}
                 </button>
             </div>
         </div>
