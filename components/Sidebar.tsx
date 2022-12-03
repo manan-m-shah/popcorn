@@ -8,28 +8,19 @@ const titles = [
     'Settings',
 ]
 
+const moviePoster = 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-movie-poster-template-design-0f5fff6262fdefb855e3a9a3f0fdd361_screen.jpg?ts=1636996054'
+
 const Sidebar = () => {
 
     const [selected, setSelected] = useState(0)
 
     return (
-        <div className='h-full flex flex-col  bg-gradient-to-top py-8'>
-            <MovieCard height={50} width={75} movieId={1} /><MovieCard height={50} width={75} movieId={1} />
-            {/* <div className='flex flex-col gap-y-6 px-4'>
-                {titles.map((title, index) => (
-                    <div
-                        key={index}
-                        className={'p-4 rounded-2xl ' + (index === selected ? 'bg-violet-600 text-violet-100' : 'bg-gray-800 text-white')}
-                    >
-                        <h1>{title}</h1>
-                    </div>
-                ))}
-            </div>
+        <div className='h-full flex flex-col  bg-gradient-to-top p-8'>
+            <div className="drop-shadow-2xl"><MovieCard height={448} width={530} movieId={moviePoster} /></div>
+            <div className="drop-shadow-2xl"><MovieCard height={448} width={530} movieId={moviePoster} /></div>
             <div className='flex flex-col gap-y-6 px-4'>
-                <div className='p-4 rounded-2xl bg-violet-600 text-violet-100'>
-                    <h1>Connect</h1>
-                </div>
-            </div> */}
+
+            </div>
         </div>
     )
 }

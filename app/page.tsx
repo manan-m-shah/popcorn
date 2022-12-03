@@ -23,7 +23,7 @@ const Home: NextPage = () => {
                 <div className='col-span-3 max-h-[150vh]'>
                     <h1 className='text-2xl ml-4'>Continue Watching</h1>
                 </div>
-                <div className=""><MovieCard height={448} width={530} movieId={moviePoster} /></div>
+                <div className="drop-shadow-md"><MovieCard height={448} width={530} movieId={moviePoster} /></div>
                 <div className=""><MovieCard height={448} width={530} movieId={moviePoster} /></div>
                 <div className=""><MovieCard height={448} width={530} movieId={moviePoster} /></div>
 

@@ -1,6 +1,8 @@
 'use client'
 import '../styles/globals.css'
 import AppProvider from "../context/AppProvider"
+import { ToastContainer } from 'react-toastify';
+
 
 import {
     LivepeerConfig,
@@ -25,14 +27,15 @@ export default function RootLayout({
         <AppProvider>
             <LivepeerConfig client={client}>
                 <html>
+                    <ToastContainer />
                     <head>
                         <title>Popcorn</title>
                     </head>
-                    <body className='h-screen'>
+                    <body className='h-[100vh]'>
                         <div className='bg-zinc-900 border-b-[1px] border-zinc-600'>
                             <Navbar />
                         </div>
-                        <div className='grid grid-cols-4 text-white h-full'>
+                        <div className='grid grid-cols-4 text-white max-h-screen h-full'>
                             <div className='col-span-1 bg-zinc-900'>
                                 <Sidebar />
                             </div>
