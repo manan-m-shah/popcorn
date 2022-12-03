@@ -10,7 +10,7 @@ const Navbar = () => {
         localStorage.getItem("account") ? localStorage.getItem("account") : ""
     )
     useEffect(() => {
-        
+
         (async () => {
             // await initWeb3();
             window.web3x = new Web3(window.ethereum)
@@ -46,13 +46,16 @@ const Navbar = () => {
             </div>
             <div>
                 <button className="bg-violet-600 hover:bg-violet-500 p-3 text-white rounded-2xl">
-                   {account ? {account.length != 0 ? (
-                        `${account.slice(0, 4)}...${account.slice(
-                            account.length - 4
-                        )}`
-                    ) : (
-                        <div>"Connect"</div>
-                    )}:<div>"Connect"</div>}
+                    {
+                        account ? (
+                            account.length != 0 ? (
+                                `${account.slice(0, 4)}...${account.slice(
+                                    account.length - 4
+                                )}`
+                            ) : (
+                                <div>"Connect"</div>
+                            )) : <div>"Connect"</div>
+                    }
                 </button>
             </div>
         </div>
