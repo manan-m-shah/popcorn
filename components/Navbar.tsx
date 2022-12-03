@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useContext } from "react"
-import { getAccount } from "../library/web3Provider"
-import Web3 from 'web3'
 import AppContext from "../context/AppContext"
 
 const titles = ["Home", "Live", "My Videos", "Settings"]
