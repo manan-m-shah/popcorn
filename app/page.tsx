@@ -14,17 +14,17 @@ const Home: NextPage = () => {
         <div className="grid min-h-screen p-4 w-full">
             <div className='grid grid-cols-3 gap-x-4 gap-y-6'>
                 <div className='col-span-3'>
-                    <div className="max-h-[150vh]"><MovieCard height={448} width={530} /></div>
+                    <div className="max-h-[150vh]"><MovieCard height={448} width={530} movieId={1} /></div>
                 </div>
-                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
-                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
-                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
-                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
-                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
-                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
-                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
-                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
-                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} movieId={1} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} movieId={1} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} movieId={1} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} movieId={1} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} movieId={1} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} movieId={1} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} movieId={1} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} movieId={1} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} movieId={1} /></div>
             </div>
         </div>
     )
