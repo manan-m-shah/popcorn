@@ -30,11 +30,12 @@ export async function getAccount(){
 
 }
 
+
 // async function createEventListener(getLastBeerInfo) {
 //     console.log("creating event listener")
 //     const contract = new window.web3x.eth.Contract(contractABI, contractAddress);
 //     contract.once('CreateRandNft', {
-//     }, function(error, event){ 
+//     }, function(error, event){
 //         console.log(event);
 //         console.log(error)
 //         let tokenId = event.returnValues.tokenId;
@@ -61,6 +62,12 @@ export async function getAccount(){
 //     console.log("token counter: ", tokenCounter)
 //     return tokenCounter;
 // }
+export async function getMovies() {
+    let contract = new window.web3x.eth.Contract(abi, address);
+    let movies = await contract.methods.movies(1).call();
+    console.log(movies);
+    return movies;
+}
 
 // export async function getNFTFromBlockchain(i) {
 //     let contract = new window.web3x.eth.Contract(contractABI, contractAddress);
