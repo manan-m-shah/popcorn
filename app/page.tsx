@@ -3,14 +3,29 @@ import type { NextPage } from 'next'
 import { useContext } from 'react'
 import AppContext from '../context/AppContext'
 import { ActionKind } from '../types/Context'
-
+import Image from 'next/image'
+import { Player } from '@livepeer/react'
+import { videoPlaybackId } from '../library/constants'
+import MovieCard from "../components/MovieCard"
 const Home: NextPage = () => {
     const { state, dispatch } = useContext(AppContext)
     console.log(state)
     return (
-        <div className="flex min-h-screen flex-col items-center justify-center py-2">
-            <h1 className='p-10 bg-blue-200'>{state.count}</h1>
-            <button onClick={() => dispatch({ type: ActionKind.COUNT, payload: 1 })}>Increment</button>
+        <div className="grid min-h-screen p-4 w-full">
+            <div className='grid grid-cols-3 gap-x-4 gap-y-6'>
+                <div className='col-span-3'>
+                    <div className="max-h-[150vh]"><MovieCard height={448} width={530} /></div>
+                </div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
+                <div className="h-[100vh]"><MovieCard height={448} width={530} /></div>
+            </div>
         </div>
     )
 }
