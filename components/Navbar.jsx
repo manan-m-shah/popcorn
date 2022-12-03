@@ -1,30 +1,15 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { getAccount } from "../library/web3Provider"
 import Web3 from 'web3'
+import AppContext from "../context/AppContext"
 
 const titles = ["Home", "Live", "My Videos", "Settings"]
 
 const Navbar = () => {
-    const [selected, setSelected] = useState(0)
-    const [account, setAccount] = useState(
-        localStorage.getItem("account") ? localStorage.getItem("account") : ""
-    )
-    useEffect(() => {
+    const { state, dispatch } = useContext(AppContext)
 
-        (async () => {
-            // await initWeb3();
-            window.web3x = new Web3(window.ethereum)
-            if (!localStorage.getItem("isWeb3Connected")) {
-                getAccount().then((account) => {
-                    setAccount((prevAcc) => {
-                        console.log("prevAcc", prevAcc)
-                        console.log("newAcc:", account)
-                        return account
-                    })
-                })
-            }
-        })()
-    }, [])
+    const [selected, setSelected] = useState(0)
+    const account = state.account
 
     return (
         <div className="flex flex-row justify-between p-4 items-center">
