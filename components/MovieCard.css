@@ -1,0 +1,37 @@
+.movie-card{
+background-color: white;
+border-style: solid;
+display: flex;
+flex-direction:column;
+justify-content:flex-end;
+
+border-radius: 10px;
+box-sizing: border-box;
+padding:24px;
+margin-bottom:12px;
+}
+.movie-title{
+font-size: 24px;
+font-weight:600;
+color:white;
+}
+.movie-author{
+font-size: 16px;
+font-weight:400;
+color:white;
+margin-bottom: 16px;
+}
+.stakers{
+font-size: 24px;
+font-weight:500;
+color:white;
+display:flex;
+width:100%;
+}
+.staked{
+margin-right:10px;
+}
+.profile-icons{
+ display:flex;
+justify-content: center;
+}
