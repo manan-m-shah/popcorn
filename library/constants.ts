@@ -8,3 +8,5 @@ const imageContainer = [
     'https://drive.google.com/file/d/1LMvgHfq8grRWlEzGcOT_bwqZGZon4C9E/view?usp=sharing',
     'https://drive.google.com/file/d/188PgFeNSH4fUMeclNCMR27BppqrVlew-/view?usp=sharing'
 ]
+export const PUSH_NOTIFICATION_SECRET_KEY =
+    "dca9fe6bc98e79a61530413afbddf406b434b7e933bab94f1d20fbda2595ece4"

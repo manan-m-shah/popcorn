@@ -30,9 +30,7 @@ const Navbar = () => {
             </div>
             <div>
                 <button className="bg-violet-600 hover:bg-violet-500 p-3 text-white rounded-2xl">
-                    <h1>
-                        {account ? "Connected" : "Connect"}
-                    </h1>
+                    <h1>{account ? account.length!=0?( `${account.slice(0,4)}...${account.slice(account.length-4)}`):(<></>) : "Connect"}</h1>
                 </button>
             </div>
         </div>
