@@ -14,7 +14,7 @@ const anything = async () => {
 }
 
 
-const address = "0xB490DaF046fEc11D6276f26765460DD80c1B01E2"
+const address = "0x402783B28f2FFf17BDa063D14BC29B266ff707F3"
  
 export async function initWeb3() {
     if (typeof window.ethereum == "undefined") {
