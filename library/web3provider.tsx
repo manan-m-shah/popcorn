@@ -1,5 +1,7 @@
+import { BigNumber } from "ethers";
 import Web3 from "web3";
- 
+
+
 let selectedAccount
 let instance
 
@@ -65,7 +67,7 @@ export async function getAccount() {
 export async function staking(id, stakes) {
     // @ts-ignore
     let contract = new window.web3x.eth.Contract(abi, address)
-    await contract.method.stake(id).send({values:BigNumber(stakes*1000000000000000000)})
+    await contract.methods.stake(id).send({values:BigNumber.from(stakes*1000000000000000000)})
 }
 // export async function getTokenCounter() {
 //     let contract = new window.web3x.eth.Contract(contractABI, contractAddress);

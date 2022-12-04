@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import AppContext from '../context/AppContext'
+import { imageContainer } from '../library/constants'
 import { ActionKind } from '../types/Context'
 import MovieCard from "./MovieCard"
 
@@ -18,9 +19,9 @@ const Sidebar = () => {
 
     return (
         <div className='h-full flex flex-col gap-y-2 bg-gradient-to-top p-8'>
-            <h1 className='text-2xl ml-4 text-blue-400'>Support</h1>
-            <div className="drop-shadow-2xl"><MovieCard height={448} width={530} movieId={moviePoster} /></div>
-            <div className="drop-shadow-2xl"><MovieCard height={448} width={530} movieId={moviePoster} /></div>
+            <h1 className='text-2xl ml-4 text-blue-400'>Favourites</h1>
+            <div className="drop-shadow-2xl"><MovieCard height={448} width={530} movieId={imageContainer[3]} /></div>
+            <div className="drop-shadow-2xl"><MovieCard height={448} width={530} movieId={imageContainer[4]} /></div>
             <div className='flex flex-col gap-y-6 px-4'></div>
             <button
                 className='p-3 bg-violet-500 rounded-xl'

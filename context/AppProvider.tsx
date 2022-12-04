@@ -30,11 +30,14 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
     const fetchAllMovies = async () => {
         const movies = await getAllMovies()
+        const moviesToDisplay = movies.slice(6)
         dispatch({
             type: ActionKind.SET_MOVIES,
-            payload: movies
+            payload: moviesToDisplay
         })
-        console.log(movies)
+        // remove first six elements from movies
+
+        console.log(moviesToDisplay)
     }
 
     useEffect(() => {

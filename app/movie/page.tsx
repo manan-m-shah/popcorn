@@ -1,25 +1,49 @@
 'use client'
 
+import { Player } from '@livepeer/react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useContext } from 'react'
 import AppContext from '../../context/AppContext'
+import { videoPlaybackId } from '../../library/constants'
 import { ActionKind } from '../../types/Context'
 import notify from '../../utils/notify'
 
 const moviePoster = 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-movie-poster-template-design-0f5fff6262fdefb855e3a9a3f0fdd361_screen.jpg?ts=1636996054'
 
+const PosterImage = () => {
+    const { state, dispatch } = useContext(AppContext)
+    const image = state.movies[state.activeMovie]
+    return (
+        <Image
+            src={image}
+            layout="fill"
+            objectFit="cover"
+            priority
+        />
+    );
+};
+
 const page = () => {
     const { state, dispatch } = useContext(AppContext)
-    const movie = state.movies[state.activeMovie]
+
+    if (!state.movies) {
+        return <></>
+    }
+
+    const movie = state?.movies[state?.activeMovie]
 
     return (
         <div className='grid grid-cols-2 px-12'>
             <div className='flex flex-col gap-y-4 p-4'>
-                <img
-                    className='rounded-2xl h-128 w-96'
-                    src={moviePoster}
-                    alt='Blender'
+                <Player
+                    title="Movie"
+                    playbackId={videoPlaybackId}
+                    loop
+                    autoPlay
+                    showTitle={false}
+                    muted
+                    poster={<PosterImage />}
                 />
             </div>
             <div className='p-4'>

@@ -3,6 +3,7 @@ import './MovieCard.css'
 import ProfilePicture from "./ProfilePicture"
 
 function MovieCard({ height, width, movieId, title }) {
+    console.log(movieId, title)
     return (
         <div className="movie-card drop-shadow-2xl" style={{
             height: `${height}`, width: `${width}`, backgroundImage: `url(${movieId})`
