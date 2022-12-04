@@ -11,6 +11,7 @@ type State = {
     movies: Movie[] | null,
     stakeModal: boolean,
     addMovie: boolean,
+    activeMovie: Movie | null,
 }
 
 export enum ActionKind {
@@ -18,6 +19,7 @@ export enum ActionKind {
     SET_MOVIES = "SET_MOVIES",
     STAKE_MODAL = "STAKE_MODAL",
     ADD_MOVIE = "ADD_MOVIE",
+    ACTIVE_MOVIE = "ACTIVE_MOVIE",
 }
 
 type Action = {

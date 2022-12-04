@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React, { useContext } from 'react'
 import AppContext from '../../context/AppContext'
 import { ActionKind } from '../../types/Context'
@@ -10,6 +11,7 @@ const moviePoster = 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action
 
 const page = () => {
     const { state, dispatch } = useContext(AppContext)
+    const movie = state.activeMovie
 
     return (
         <div className='grid grid-cols-2 px-12'>
