@@ -6,7 +6,7 @@ let selectedAccount
 import abiJson from "./abi.json"
 const abi = abiJson.abi
  
-const address = "0x370F63169BE9b3584C51d581B61f86442b7C25e2"
+const address = "0xB490DaF046fEc11D6276f26765460DD80c1B01E2"
  
 // export async function initWeb3() {
 //     if (typeof window.ethereum == "undefined") {
@@ -79,6 +79,11 @@ export async function addMovies() {
         )
         .send()
 }
+
+//* movies - get, add, getById
+//* stake
+//* nft purchase
+//* fetch profits
  
 // export async function getNFTFromBlockchain(i) {
 //     let contract = new window.web3x.eth.Contract(contractABI, contractAddress);
