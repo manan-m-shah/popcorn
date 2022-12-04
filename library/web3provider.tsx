@@ -74,10 +74,17 @@ export async function staking(id, stakes) {
 //     return tokenCounter;
 // }
 //get all movies
-export async function getMovies() {
+export async function getMovies(id) {
     // @ts-ignore
     let contract = new window.web3x.eth.Contract(abi, address)
-    let movies = await contract.methods.movies(1).call()
+    let movies = await contract.methods.movies(id).call()
+    console.log(movies)
+    return movies
+}
+export async function getAllMovies() {
+    // @ts-ignore
+    let contract = new window.web3x.eth.Contract(abi, address)
+    let movies = await contract.methods.getAllMovies().call()
     console.log(movies)
     return movies
 }
