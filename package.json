@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@livepeer/react": "^1.5.6",
+    "big-number": "^2.0.0",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
