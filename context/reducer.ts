@@ -23,6 +23,11 @@ const reducer = (state: State, action: Action): State => {
                 ...state,
                 addMovie: action.payload
             }
+        case ActionKind.ACTIVE_MOVIE:
+            return {
+                ...state,
+                activeMovie: action.payload
+            }
         default:
             return state
     }

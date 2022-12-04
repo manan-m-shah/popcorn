@@ -1,5 +1,4 @@
-// import Web3 from "web3";
-// import { contractABI, contractAddress } from "../constants";
+import Web3 from "web3";
  
 let selectedAccount
  
@@ -8,13 +7,14 @@ const abi = abiJson.abi
  
 const address = "0xB490DaF046fEc11D6276f26765460DD80c1B01E2"
  
-// export async function initWeb3() {
-//     if (typeof window.ethereum == "undefined") {
-//         console.log("no metamask")
-//     }
-//     window.web3x = new Web3(window.ethereum);
-//     return new Promise((r) => setTimeout(r, 2000))
-// }
+export async function initWeb3() {
+    if (typeof window.ethereum == "undefined") {
+        console.log("no metamask")
+    }
+    window.web3x = new Web3(window.ethereum);
+    return new Promise((r) => setTimeout(r, 2000))
+}
+
  //get account
 export async function getAccount() {
     try {
@@ -69,13 +69,13 @@ export async function getMovies() {
     return movies
 }
 //add all movies
-export async function addMovies(name, description, image, playbackId,startAt,endAt, price) {
+export async function addMovies(name: string, description: string, image: string, playbackId: string,startAt: number,endAt: number, price: number, selectedAccount:string) {
     // @ts-ignore
     let contract = new window.web3x.eth.Contract(abi, address)
     console.log(contract.methods);
     await contract.methods
         .addMovie(name, description, image, playbackId, startAt, endAt, price)
-        .send()
+        .send({from: selectedAccount})
 }
 
 //* movies - get, add, getById

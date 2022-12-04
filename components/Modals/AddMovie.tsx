@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import AppContext from '../../context/AppContext'
+import { addMovies } from '../../library/web3provider';
 import { ActionKind } from '../../types/Context';
 
 const Stake = () => {
     const { state, dispatch } = useContext(AppContext)
-    const [title, setTitle] = useState('')
-    const [description, setDescription] = useState('')
-    const [image, setImage] = useState('')
-    const [playbackId, setPlaybackId] = useState('')
-    const [nftAddress, setNftAddress] = useState('')
+    const [title, setTitle] = useState('title')
+    const [description, setDescription] = useState('desc')
+    const [image, setImage] = useState('img')
+    const [playbackId, setPlaybackId] = useState('abc')
+    const [price, setPrice] = useState(1)
 
     console.log(state.addMovie)
 
     const handleSubmit = async () => {
         // check if all fields are filled
-        if (title === '' || description === '' || image === '' || playbackId === '' || nftAddress === '') {
+        if (title === '' || description === '' || image === '' || playbackId === '' || price < 1) {
             alert('Please fill all fields')
             return
         }
-        console.log('submitting')
+        const waiter = await addMovies(
+            title, description, image, playbackId, Date.now(), Date.now() + 100000, price, state.account
+        )
     }
 
     return (
@@ -57,9 +60,9 @@ const Stake = () => {
                             />
                             <input
                                 className='p-3 pl-8 bg-zinc-900 w-full rounded-2xl border-2 border-zinc-600'
-                                placeholder='nft address'
-                                value={nftAddress}
-                                onChange={(e) => setNftAddress(e.target.value)}
+                                placeholder='price'
+                                value={price}
+                                type='number'
                             />
                         </div>
                         <button
