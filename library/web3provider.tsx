@@ -1,20 +1,32 @@
-// import Web3 from "web3";
+import Web3 from "web3";
+import { useEffect } from 'react';
 // import { contractABI, contractAddress } from "../constants";
  
 let selectedAccount
+let instance
+
+
  
 import abiJson from "./abi.json"
 const abi = abiJson.abi
- 
+
+const anything = async () => {
+    instance = await this.deployer()
+    let staking = await instance.methods.staking().call()
+}
+
+
 const address = "0xB490DaF046fEc11D6276f26765460DD80c1B01E2"
  
-// export async function initWeb3() {
-//     if (typeof window.ethereum == "undefined") {
-//         console.log("no metamask")
-//     }
-//     window.web3x = new Web3(window.ethereum);
-//     return new Promise((r) => setTimeout(r, 2000))
-// }
+export async function initWeb3() {
+    // @ts-ignore
+    if (typeof window.ethereum == "undefined") {
+        console.log("no metamask")
+    }
+    // @ts-ignore
+    window.web3x = new Web3(window.ethereum)
+    return new Promise((r) => setTimeout(r, 2000))
+}
  //get account
 export async function getAccount() {
     try {
@@ -53,7 +65,11 @@ export async function getAccount() {
 //     console.log(txResult)
 //     createEventListener(getLastBeerInfo);
 // }
- 
+export async function staking(id, stakes) {
+    // @ts-ignore
+    let contract = new window.web3x.eth.Contract(abi, address)
+    await contract.method.stake(id).send({values:BigNumber(stakes*1000000000000000000)})
+}
 // export async function getTokenCounter() {
 //     let contract = new window.web3x.eth.Contract(contractABI, contractAddress);
 //     let tokenCounter = await contract.methods.getTokenCounter().call();
@@ -77,6 +93,9 @@ export async function addMovies(name, description, image, playbackId,startAt,end
         .addMovie(name, description, image, playbackId, startAt, endAt, price)
         .send()
 }
+
+
+
 
 //* movies - get, add, getById
 //* stake

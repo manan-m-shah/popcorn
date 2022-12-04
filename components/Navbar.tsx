@@ -9,6 +9,7 @@ const Navbar = () => {
     const [selected, setSelected] = useState(0)
     const account = state.account
     console.log(account)
+    
 
     return (
         <div className="flex flex-row justify-between p-4 items-center">
