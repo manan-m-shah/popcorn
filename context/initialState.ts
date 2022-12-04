@@ -5,7 +5,7 @@ const initialState: State = {
     movies: null,
     stakeModal: false,
     addMovie: false,
-    activeMovie: null,
+    activeMovie: 0,
 }
 
 export default initialState

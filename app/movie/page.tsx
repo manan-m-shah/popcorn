@@ -11,7 +11,7 @@ const moviePoster = 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action
 
 const page = () => {
     const { state, dispatch } = useContext(AppContext)
-    const movie = state.activeMovie
+    const movie = state.movies[state.activeMovie]
 
     return (
         <div className='grid grid-cols-2 px-12'>
@@ -25,7 +25,7 @@ const page = () => {
             <div className='p-4'>
                 <div className='flex flex-col gap-y-4 p-4'>
                     <h1 className='text-4xl'>
-                        Movie Title
+                        {movie?.title}
                     </h1>
                     <div className='flex flex-col gap-y-4'>
                         <h1>Starring</h1>
@@ -45,7 +45,7 @@ const page = () => {
                     </div>
                 </div>
                 <div className='flex flex-col gap-y-4 p-4'>
-                    <h3>Description</h3>
+                    <h3>{movie?.description}</h3>
                     <div className='font-thin'>
                         Centers on a young surgeon with Savant syndrome who is recruited into the pediatric surgical unit of a prestigious hospital. The question will arise: Can a person who doesn't have the ability to relate to people actually save their lives?
                     </div>
@@ -75,7 +75,7 @@ const page = () => {
                     </button>
                     <div className='flex gap-x-2'>
                         <h1>Total Collection</h1>
-                        <h1 className='text-violet-300'>0.24 ETH</h1>
+                        <h1 className='text-violet-300'>{movie?.profit} ETH</h1>
                     </div>
                 </div>
             </div>

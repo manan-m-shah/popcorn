@@ -1,6 +1,6 @@
 // create app context and provider
 import React, { createContext, useEffect, useReducer, useState } from 'react'
-import { getAccount, getMovies, initWeb3 } from '../library/web3provider'
+import { getAccount, getAllMovies, getMovies, initWeb3 } from '../library/web3provider'
 import { Action, ActionKind, State } from '../types/Context'
 import AppContext from './AppContext'
 import initialState from './initialState'
@@ -28,17 +28,18 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         })
     }
 
-    const getAllMovies = async () => {
-        const movies = await getMovies()
+    const fetchAllMovies = async () => {
+        const movies = await getAllMovies()
         dispatch({
             type: ActionKind.SET_MOVIES,
             payload: movies
         })
+        console.log(movies)
     }
 
     useEffect(() => {
         getCurrentAccount()
-        getAllMovies()
+        fetchAllMovies()
 
         // return () => {
 

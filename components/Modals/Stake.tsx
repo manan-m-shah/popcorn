@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import AppContext from '../../context/AppContext'
+import { staking } from '../../library/web3provider';
 import { ActionKind } from '../../types/Context';
 
 const Stake = () => {
     const { state, dispatch } = useContext(AppContext)
-    const [value, setValue] = useState(100)
+    const [value, setValue] = useState(1)
 
     console.log(state.stakeModal)
+
+    const handleSubmit = async () => {
+        const waiter = staking(state.movies[state.activeMovie], value)
+    }
 
     return (
         state.stakeModal ? (
@@ -18,10 +23,10 @@ const Stake = () => {
                             <button
                                 className='text-7xl text-zinc-300 hover:text-white hover:scale-105'
                                 onClick={() => {
-                                    if (value < 100) {
+                                    if (value < 1) {
                                         setValue(0)
                                     } else {
-                                        setValue(oldValue => oldValue - 100)
+                                        setValue(oldValue => oldValue - 1)
                                     }
 
                                 }}
@@ -31,19 +36,22 @@ const Stake = () => {
                             <input
                                 className='p-3 ml-2 bg-zinc-700 rounded-2xl text-center text-xl w-[100px] py-6 placeholder-gray-400 border-zinc-900 border-2'
                                 type="number"
-                                placeholder='100'
+                                placeholder='1'
                                 value={value}
                             />
                             <button
                                 className='text-7xl text-zinc-300 hover:text-white hover:scale-105'
                                 onClick={() => {
-                                    setValue(oldValue => oldValue + 100)
+                                    setValue(oldValue => oldValue + 1)
                                 }}
                             >
                                 +
                             </button>
                         </div>
-                        <button className='p-3 rounded-xl w-full bg-blue-500'>
+                        <button
+                            className='p-3 rounded-xl w-full bg-blue-500'
+                            onClick={handleSubmit}
+                        >
                             Stake
                         </button>
                         <button

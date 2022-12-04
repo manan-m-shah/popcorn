@@ -1,9 +1,10 @@
 type Movie = {
-    name: string,
+    title: string,
     description: string,
     image: string,
     playbackId: string,
     creatorAddress: string,
+    profit: string,
 }
 
 type State = {
@@ -11,7 +12,7 @@ type State = {
     movies: Movie[] | null,
     stakeModal: boolean,
     addMovie: boolean,
-    activeMovie: Movie | null,
+    activeMovie: number,
 }
 
 export enum ActionKind {
