@@ -49,13 +49,17 @@ const page = () => {
                     </div>
                 </div>
                 <div className='grid grid-cols-1 w-full p-8 px-0 gap-y-4'>
-                    <button className='w-full p-3 bg-blue-500 rounded-2xl'
-                    // onClick={() => { 
-                    //     notify('info', 'Coming Soon!')
-                    // }}
-                    >
-                        Play
-                    </button>
+                    {
+                        (
+                            <button className='w-full p-3 bg-blue-500 rounded-2xl'
+                            // onClick={() => { 
+                            //     notify('info', 'Coming Soon!')
+                            // }}
+                            >
+                                Play
+                            </button>
+                        )
+                    }
                     <button
                         className='w-full p-3 bg-violet-500 rounded-2xl'
                         onClick={() => {
@@ -67,6 +71,10 @@ const page = () => {
                     >
                         Stake
                     </button>
+                    <div className='flex gap-x-2'>
+                        <h1>Total Collection</h1>
+                        <h1 className='text-violet-300'>0.24 ETH</h1>
+                    </div>
                 </div>
             </div>
 

@@ -12,8 +12,8 @@ import {
 } from '@livepeer/react';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
-import Livepeer from '../components/livepeer';
 import Stake from '../components/Modals/Stake';
+import AddMovie from '../components/Modals/AddMovie';
 
 const client = createReactClient({
     provider: studioProvider({ apiKey: '85ea69d5-0c3e-42b0-a271-20ccdcd9a76a' }),
@@ -30,6 +30,7 @@ export default function RootLayout({
                 <html>
                     <ToastContainer />
                     <Stake />
+                    <AddMovie />
                     <head>
                         <title>Popcorn</title>
                     </head>

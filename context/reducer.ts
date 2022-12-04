@@ -18,6 +18,11 @@ const reducer = (state: State, action: Action): State => {
                 ...state,
                 stakeModal: action.payload
             }
+        case ActionKind.ADD_MOVIE:
+            return {
+                ...state,
+                addMovie: action.payload
+            }
         default:
             return state
     }
