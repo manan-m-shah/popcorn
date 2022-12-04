@@ -15,7 +15,7 @@ const address = "0xB490DaF046fEc11D6276f26765460DD80c1B01E2"
 //     window.web3x = new Web3(window.ethereum);
 //     return new Promise((r) => setTimeout(r, 2000))
 // }
- 
+ //get account
 export async function getAccount() {
     try {
         // @ts-ignore
@@ -60,6 +60,7 @@ export async function getAccount() {
 //     console.log("token counter: ", tokenCounter)
 //     return tokenCounter;
 // }
+//get all movies
 export async function getMovies() {
     // @ts-ignore
     let contract = new window.web3x.eth.Contract(abi, address)
@@ -67,16 +68,13 @@ export async function getMovies() {
     console.log(movies)
     return movies
 }
-export async function addMovies() {
+//add all movies
+export async function addMovies(name, description, image, playbackId,startAt,endAt, price) {
     // @ts-ignore
     let contract = new window.web3x.eth.Contract(abi, address)
     console.log(contract.methods);
-    await contract.methods.addMovie(
-            "SpiderMan",
-            "makkad manav aur uski zindagi",
-            "https://drive.google.com/file/d/1lkarZoG5INRi3NYuwSg7pEyxiLaqkoWx/view?usp=share_link",
-            "https://www.youtube.com/watch?v=h7nLvbTnDgg"
-        )
+    await contract.methods
+        .addMovie(name, description, image, playbackId, startAt, endAt, price)
         .send()
 }
 
