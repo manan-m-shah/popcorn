@@ -17,7 +17,7 @@ $ npm run start
 
 # Project Story
 
-![Landing Page](https://)
+![Landing Page](https://devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F477fc44df3b94017b8b4bef44fca3cd7%2Fprojects%2F6e2ac328f0744e3995dcb0394e4ff5bb%2Fa2e67baa-fa7f-48eb-8136-4d14ae9de452.png&w=1440&q=75)
 <div align="center"> POPCORN </div>
 
 ## Inspiration
