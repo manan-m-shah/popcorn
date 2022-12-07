@@ -1,7 +1,11 @@
 import { State } from "../types/Context";
 
 const initialState: State = {
-    count: 0
+    account: null,
+    movies: null,
+    stakeModal: false,
+    addMovie: false,
+    activeMovie: 0,
 }
 
 export default initialState
